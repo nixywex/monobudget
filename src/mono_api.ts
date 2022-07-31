@@ -25,20 +25,20 @@ interface paymentPreparedInterface {
 	sumOperationCurrency: number;
 	currency: string | null;
 	balance: number;
-	category: Promise<string> | null;
+	category: Promise<string | null>;
 }
 
-const getJsonData = async (url: string, token: string): Promise<paymentInterface[]> =>
-	(
+const getJsonData = async (url: string, token: string): Promise<paymentInterface[]> => {
+	return (
 		await axios.get(url, {
 			headers: {
 				"X-Token": token,
 			},
 		})
 	).data;
+};
 
 const getPaymentsList = (payments: Array<paymentInterface>): Array<paymentPreparedInterface> => {
-	console.log(payments);
 	return payments.map((payment) => {
 		const currencyCode: CurrencyCodeRecord | undefined = cc.number(String(payment.currencyCode));
 
@@ -54,12 +54,18 @@ const getPaymentsList = (payments: Array<paymentInterface>): Array<paymentPrepar
 	});
 };
 
-const getPayments = async (url: string, token: string): Promise<paymentPreparedInterface[]> =>
-	await getJsonData(url, token)
-		.then((r) => {
-			console.log(r);
-			return r;
-		})
-		.then((res) => getPaymentsList(res));
+const getPayments = async (url: string, token: string): Promise<paymentPreparedInterface[] | null> => {
+	try {
+		const jsonData: paymentInterface[] = await getJsonData(url, token);
+		return getPaymentsList(jsonData);
+	} catch (e) {
+		if (axios.isAxiosError(e)) {
+			console.error("Something went wrong: " + e.message);
+		} else {
+			console.error("unexpected error");
+		}
+		return null;
+	}
+};
 
-export { getPayments };
+export { getPayments, getJsonData };
