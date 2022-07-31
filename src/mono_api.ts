@@ -28,7 +28,36 @@ interface paymentPreparedInterface {
 	category: Promise<string | null>;
 }
 
+interface accountInterface {
+	balance: number;
+	cashbackType: string;
+	creditLimit: number;
+	currencyCode: number;
+	iban: string;
+	id: string;
+	maskedPan: Array<string>;
+	sendId: string;
+	type: string;
+}
+interface clientInfoInterface {
+	accounts: Array<accountInterface>;
+	clientId: string;
+	name: string;
+	permissions: string;
+	webHookUrl: string;
+}
+
 const getJsonData = async (url: string, token: string): Promise<paymentInterface[]> => {
+	return (
+		await axios.get(url, {
+			headers: {
+				"X-Token": token,
+			},
+		})
+	).data;
+};
+
+const getJsonClientInfo = async (url: string, token: string): Promise<clientInfoInterface> => {
 	return (
 		await axios.get(url, {
 			headers: {
@@ -68,4 +97,23 @@ const getPayments = async (url: string, token: string): Promise<paymentPreparedI
 	}
 };
 
-export { getPayments, getJsonData };
+const generateInfoURL = async (url: string, token: string, from: number, to?: number): Promise<string | null> => {
+	if ((to ? to : Date.now()) - 2682000 > from) {
+		console.error("Обраний занадто великий діапазон даних");
+		return null;
+	}
+
+	try {
+		const urlSample = "https://api.monobank.ua/personal/statement/";
+		const clientInfo: clientInfoInterface = await getJsonClientInfo(url, token);
+		const accounts = clientInfo.accounts;
+		const id = accounts[2].id;
+		return urlSample + id + "/" + from + "/" + (to ? to : "");
+	} catch (e) {
+		if (axios.isAxiosError(e)) console.log(e.message);
+		else console.log("unexpected error");
+		return null;
+	}
+};
+
+export { getPayments, getJsonData, generateInfoURL };
