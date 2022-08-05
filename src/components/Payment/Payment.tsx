@@ -1,19 +1,11 @@
 import React from "react";
+import cn from "classnames";
+
+import PaymentInterface from "./Payment.props";
 
 import "./Payment.css";
 
-interface PaymentInterface {
-	time: number;
-	description: string;
-	category: string;
-	amount: number;
-	currency: string;
-	balance: number;
-	cardCurrency: string;
-	operationAmount?: number;
-}
-
-const Payment = ({
+const Payment: React.FC<PaymentInterface> = ({
 	time,
 	description,
 	category,
@@ -22,7 +14,7 @@ const Payment = ({
 	balance,
 	cardCurrency,
 	operationAmount,
-}: PaymentInterface) => {
+}) => {
 	return (
 		<div className='payment'>
 			<div className='payment__info'>
@@ -35,13 +27,23 @@ const Payment = ({
 			</div>
 			<div className='payment__sum'>
 				<div className='payment__sum__amount'>
-					<p>
+					<p
+						className={cn("", {
+							payment__sum_spend: amount < 0,
+							payment__sum_income: amount > 0,
+						})}
+					>
 						{amount} {cardCurrency}
 					</p>
 				</div>
 				{operationAmount && (
 					<div className='payment__sum__operationAmount'>
-						<p>
+						<p
+							className={cn("", {
+								payment__sum_spend: amount < 0,
+								payment__sum_income: amount > 0,
+							})}
+						>
 							{operationAmount} {currency}
 						</p>
 					</div>

@@ -24,3 +24,11 @@
 .payment__sum__operationAmount p {
     text-align: right;
 }
+
+.payment__sum_spend {
+    color: var(--black);
+}
+
+.payment__sum_income {
+    color: var(--succes);
+}

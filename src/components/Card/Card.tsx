@@ -1,23 +1,17 @@
 import React from "react";
 import cn from "classnames";
 
+import CardProps from "./Card.props";
+
 import "./Card.css";
 
-interface CardProps {
-	cardNum: string;
-	balance: number;
-	id: string;
-	cardCurrency?: string;
-	type?: "black" | "white" | "e-aid";
-}
-
-function Card({ cardNum, balance, id, cardCurrency = "UAH", type = "black" }: CardProps): React.ReactElement {
+const Card: React.FC<CardProps> = ({ cardNum, balance, id, cardCurrency = "UAH", type = "black" }) => {
 	return (
 		<div
 			className={cn("card", {
 				"card_white-card": type === "white",
 				"card_black-card": type === "black",
-				"card_e-aid-card": type === "e-aid",
+				"card_e-aid-card": type === "eAid",
 			})}
 		>
 			<div className='card__logo'>
@@ -27,7 +21,7 @@ function Card({ cardNum, balance, id, cardCurrency = "UAH", type = "black" }: Ca
 				className={cn("card__card-num", {
 					"card__card-num_white-card": type === "white",
 					"card__card-num_black-card": type === "black",
-					"card__card-num_e-aid-card": type === "e-aid",
+					"card__card-num_e-aid-card": type === "eAid",
 				})}
 			>
 				<p>{cardNum}</p>
@@ -36,7 +30,7 @@ function Card({ cardNum, balance, id, cardCurrency = "UAH", type = "black" }: Ca
 				className={cn("card__card-balance", {
 					"card__card-balance_white-card": type === "white",
 					"card__card-balance_black-card": type === "black",
-					"card__card-balance_e-aid-card": type === "e-aid",
+					"card__card-balance_e-aid-card": type === "eAid",
 				})}
 			>
 				<p>
@@ -45,6 +39,6 @@ function Card({ cardNum, balance, id, cardCurrency = "UAH", type = "black" }: Ca
 			</div>
 		</div>
 	);
-}
+};
 
 export default Card;
