@@ -1,16 +1,9 @@
 import axios from "axios";
 import { mccInterface } from "./mcc_intefaces";
+import mcc from "./mcc.json";
 
-const mccUrl =
-  "https://raw.githubusercontent.com/Oleksios/Merchant-Category-Codes/main/With%20groups/mcc.json";
-
-const getMcc = async (): Promise<mccInterface[]> => {
-  return (await axios(mccUrl)).data;
-};
-
-const getMccCategory = async (mccCode: number): Promise<string | null> => {
+const getMccCategory = (mccCode: number): string | null => {
   try {
-    const mcc = await getMcc();
     return mcc.filter(
       (mccObj: mccInterface) => Number(mccObj.mcc) === mccCode
     )[0].shortDescription.uk;
@@ -18,7 +11,7 @@ const getMccCategory = async (mccCode: number): Promise<string | null> => {
     if (axios.isAxiosError(e)) {
       console.error("Something went wrong: " + e.message);
     } else {
-      console.error("unexpected error");
+      console.error("unexpected category error");
     }
     return null;
   }

@@ -32,9 +32,8 @@ const ClientInfoPage: React.FC<ClientInfoPageProps> = ({
       <h1>Вітаю, {clientInfo.name}</h1>
       {clientInfo.accounts.map((account: accountInterface) => {
         return (
-          <Link to={"/cardInfo/" + account.id}>
+          <Link key={account.id} to={"/cardInfo/" + account.id}>
             <Card
-              key={account.id}
               cardNum={prepareCardNumber(account.maskedPan[0])}
               balance={account.balance / 100}
               id={account.id}

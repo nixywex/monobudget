@@ -33,11 +33,13 @@ const CardPaymentPage: React.FC<CardPaymentPageProps> = ({ token }) => {
       {payments.map((payment: paymentPreparedInterface) => {
         return (
           <Payment
+            key={payment.id}
             description={payment.paymentDescription}
             amount={payment.sumCardCurrency}
             cardCurrency={"UAH"}
             operationAmount={payment.sumOperationCurrency}
             currency={payment.currency}
+            category={payment.category ? payment.category : "Інше"}
           />
         );
       })}

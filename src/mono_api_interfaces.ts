@@ -21,7 +21,8 @@ interface paymentPreparedInterface {
   sumOperationCurrency: number;
   currency: string | null;
   balance: number;
-  category: Promise<string | null>;
+  category: string | null;
+  id: string;
 }
 
 interface accountInterface {
@@ -35,6 +36,7 @@ interface accountInterface {
   sendId: string;
   type: "black" | "white" | "eAid";
 }
+
 interface clientInfoInterface {
   accounts: Array<accountInterface>;
   clientId: string;

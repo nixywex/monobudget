@@ -50,6 +50,7 @@ const getPaymentsList = (
       currency: currencyCode ? currencyCode.code : null,
       balance: payment.balance / 100,
       category: getMccCategory(payment.mcc),
+      id: payment.id,
     };
   });
 };
