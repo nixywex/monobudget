@@ -1,9 +1,24 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
+import Button from "../components/UI/Button/Button";
+import Input from "../components/UI/Input/Input";
+
 interface HomePageProps {
   submitToken: (token: string) => void;
 }
+
+const homePageStyle = {
+  display: "flex",
+  justifyItems: "center",
+  alignContent: "center",
+  flexDirection: "column" as "column",
+  width: "100%",
+};
+
+const linkStyle = {
+  color: "var(--primary)",
+};
 
 const HomePage: React.FC<HomePageProps> = ({ submitToken }) => {
   const [inputValue, setInputValue] = useState<string>("");
@@ -15,25 +30,32 @@ const HomePage: React.FC<HomePageProps> = ({ submitToken }) => {
   };
 
   return (
-    <div>
+    <div style={homePageStyle}>
       <form
         onSubmit={(event) => {
           event.preventDefault();
         }}
       >
-        <h1>Введіть Token</h1>
-        <input type="text" onChange={(event) => handleInputChange(event)} />
+        <h1>Для отримання інформації введіть токен</h1>
+        <Input
+          placeholder={"Токен..."}
+          type="text"
+          onChange={(event) => handleInputChange(event)}
+        />
         <Link to={"/clientInfo"}>
-          <button
+          <Button
             onClick={() => {
               submitToken(inputValue);
             }}
             type={"submit"}
           >
             Відправити
-          </button>
+          </Button>
         </Link>
       </form>
+      <Link style={linkStyle} to={"/how-to-get-token"}>
+        Як отримати токен?
+      </Link>
     </div>
   );
 };

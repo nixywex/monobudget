@@ -1,0 +1,12 @@
+.footer {
+  padding: 40px;
+  display: flex;
+  text-align: left;
+  background-color: var(--dark);
+}
+
+.footer__text_warning {
+  text-decoration: underline;
+  text-transform: uppercase;
+  color: var(--primary);
+}

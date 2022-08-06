@@ -4,6 +4,8 @@ import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import ClientInfoPage from "./pages/ClientInfoPage";
 import CardPaymentPage from "./pages/CardPaymentPage";
+import Header from "./components/UI/Header/Header";
+import Footer from "./components/UI/Footer/Footer";
 
 import "./App.css";
 
@@ -27,6 +29,7 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
+      <Header />
       <Routes>
         <Route path="/" element={<HomePage submitToken={submitToken} />} />
         <Route
@@ -43,6 +46,7 @@ const App: React.FC = () => {
           element={<CardPaymentPage token={token} />}
         />
       </Routes>
+      <Footer />
     </div>
   );
 };

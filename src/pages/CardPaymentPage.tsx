@@ -16,7 +16,7 @@ const CardPaymentPage: React.FC<CardPaymentPageProps> = ({ token }) => {
 
   useEffect(() => {
     if (cardID && token) {
-      generateInfoURL(cardID, 1657436731)
+      generateInfoURL(cardID, Math.round(+new Date() / 1000 - 2681999))
         .then((url) => {
           if (url) return getPayments(url, token);
         })
