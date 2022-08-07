@@ -23,8 +23,8 @@ const Card: React.FC<CardProps> = ({
         <img
           src={`./mono_logo${type === "black" ? "_white" : ""}.png`}
           alt="monobank logo"
-          width={120}
-          height={34}
+          width={110}
+          height={30}
         />
       </div>
       <div

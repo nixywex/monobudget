@@ -11,6 +11,31 @@ interface ClientInfoPageProps {
   prepareCardNumber: (number: string) => string;
 }
 
+const linkStyles = {
+  textDecoration: "none",
+};
+
+const cardsStyles = {
+  display: "flex",
+  flexWrap: "wrap" as "wrap",
+  justifyContent: "flex-start",
+  alignItems: "center",
+};
+
+const titleStyles = {
+  margin: "20px 0",
+};
+
+const descriptionStyles = {
+  margin: "20px 0",
+  textAlign: "left" as "left",
+  fontSize: "20px",
+};
+
+const pageStyles = {
+  padding: "0 40px",
+};
+
 const ClientInfoPage: React.FC<ClientInfoPageProps> = ({
   token,
   prepareCardNumber,
@@ -28,21 +53,28 @@ const ClientInfoPage: React.FC<ClientInfoPageProps> = ({
   if (!clientInfo) return <></>;
 
   return (
-    <div>
-      <h1>Вітаю, {clientInfo.name}</h1>
-      {clientInfo.accounts.map((account: accountInterface) => {
-        return (
-          <Link key={account.id} to={"/cardInfo/" + account.id}>
-            <Card
-              cardNum={prepareCardNumber(account.maskedPan[0])}
-              balance={account.balance / 100}
-              id={account.id}
-              type={account.type}
-              cardCurrency={cc.number(String(account.currencyCode))?.code}
-            />
-          </Link>
-        );
-      })}
+    <div style={pageStyles}>
+      <h1 style={titleStyles}>Вітаю, {clientInfo.name}</h1>
+      <p style={descriptionStyles}>Оберіть картку для перегляду виписки:</p>
+      <div style={cardsStyles} className="cards">
+        {clientInfo?.accounts?.map((account: accountInterface) => {
+          return (
+            <Link
+              style={linkStyles}
+              key={account.id}
+              to={"/cardInfo/" + account.id}
+            >
+              <Card
+                cardNum={prepareCardNumber(account.maskedPan[0])}
+                balance={account.balance / 100}
+                id={account.id}
+                type={account.type}
+                cardCurrency={cc.number(String(account.currencyCode))?.code}
+              />
+            </Link>
+          );
+        })}
+      </div>
     </div>
   );
 };
