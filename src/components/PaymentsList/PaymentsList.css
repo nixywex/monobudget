@@ -1,0 +1,17 @@
+.payments-list {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 0;
+}
+
+.payments-list__income,
+.payments-list__spending {
+  width: 45%;
+  margin: 0 50px;
+}
+
+.payments-list__title {
+  margin: 20px 0;
+}

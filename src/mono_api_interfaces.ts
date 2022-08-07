@@ -19,9 +19,9 @@ interface paymentPreparedInterface {
   time: number;
   sumCardCurrency: number;
   sumOperationCurrency: number;
-  currency: string | null;
+  currency: string;
   balance: number;
-  category: string | null;
+  category: string;
   id: string;
 }
 

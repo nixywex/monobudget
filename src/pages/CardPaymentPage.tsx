@@ -3,11 +3,19 @@ import { useParams } from "react-router-dom";
 import { generateInfoURL, getPayments } from "../mono_api";
 import { paymentPreparedInterface } from "../mono_api_interfaces";
 
-import Payment from "../components/Payment/Payment";
+import PaymentsList from "../components/PaymentsList/PaymentsList";
 
 interface CardPaymentPageProps {
   token: string;
 }
+
+const descriptionStyle = {
+  marginTop: "20px",
+};
+
+const pageStyle = {
+  padding: "0 40px",
+};
 
 const CardPaymentPage: React.FC<CardPaymentPageProps> = ({ token }) => {
   const { cardID } = useParams();
@@ -29,20 +37,9 @@ const CardPaymentPage: React.FC<CardPaymentPageProps> = ({ token }) => {
   if (!payments) return <></>;
 
   return (
-    <div>
-      {payments.map((payment: paymentPreparedInterface) => {
-        return (
-          <Payment
-            key={payment.id}
-            description={payment.paymentDescription}
-            amount={payment.sumCardCurrency}
-            cardCurrency={"UAH"}
-            operationAmount={payment.sumOperationCurrency}
-            currency={payment.currency}
-            category={payment.category ? payment.category : "Інше"}
-          />
-        );
-      })}
+    <div style={pageStyle}>
+      <h1 style={descriptionStyle}>Виписка за 31 день</h1>
+      <PaymentsList payments={payments} />
     </div>
   );
 };

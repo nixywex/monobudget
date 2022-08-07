@@ -1,5 +1,5 @@
 import axios from "axios";
-import cc, { CurrencyCodeRecord } from "currency-codes";
+import cc from "currency-codes";
 import { getMccCategory } from "./mcc";
 import {
   paymentInterface,
@@ -38,18 +38,22 @@ const getPaymentsList = (
   payments: Array<paymentInterface>
 ): Array<paymentPreparedInterface> => {
   return payments.map((payment) => {
-    const currencyCode: CurrencyCodeRecord | undefined = cc.number(
+    let currencyCode: string | undefined = cc.number(
       String(payment.currencyCode)
-    );
+    )?.code;
+    if (!currencyCode) currencyCode = "UAH";
+
+    let category: string | null = getMccCategory(payment.mcc);
+    if (!category) category = "Інше";
 
     return {
       paymentDescription: payment.description,
       time: payment.time,
       sumCardCurrency: payment.amount / 100,
       sumOperationCurrency: payment.operationAmount / 100,
-      currency: currencyCode ? currencyCode.code : null,
+      currency: currencyCode,
       balance: payment.balance / 100,
-      category: getMccCategory(payment.mcc),
+      category: category,
       id: payment.id,
     };
   });
