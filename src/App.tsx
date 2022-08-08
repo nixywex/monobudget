@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import ClientInfoPage from "./pages/ClientInfoPage";
 import CardPaymentPage from "./pages/CardPaymentPage";
+import HowToGetTokenPage from "./pages/HowToGetTokenPage";
 import Header from "./components/UI/Header/Header";
 import Footer from "./components/UI/Footer/Footer";
 
@@ -45,6 +46,7 @@ const App: React.FC = () => {
           path="/cardInfo/:cardID"
           element={<CardPaymentPage token={token} />}
         />
+        <Route path="/how-to-get-token" element={<HowToGetTokenPage />} />
       </Routes>
       <Footer />
     </div>

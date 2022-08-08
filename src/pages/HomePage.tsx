@@ -20,6 +20,10 @@ const linkStyle = {
   color: "var(--primary)",
 };
 
+const buttonStyle = {
+  margin: "20px",
+};
+
 const HomePage: React.FC<HomePageProps> = ({ submitToken }) => {
   const [inputValue, setInputValue] = useState<string>("");
 
@@ -44,6 +48,7 @@ const HomePage: React.FC<HomePageProps> = ({ submitToken }) => {
         />
         <Link to={"/clientInfo"}>
           <Button
+            style={buttonStyle}
             onClick={() => {
               submitToken(inputValue);
             }}

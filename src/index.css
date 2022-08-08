@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+li {
+  list-style-type: none;
+}
+
 body {
   --black: #000000;
   --white: #ffffff;
