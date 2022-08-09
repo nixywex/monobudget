@@ -15,25 +15,24 @@ interface ClientInfoPageProps {
   prepareCardNumber: (number: string) => string;
 }
 
-const cardsStyles = {
-  display: "flex",
-  flexWrap: "wrap" as "wrap",
-  justifyContent: "flex-start",
-  alignItems: "center",
-};
-
-const titleStyles = {
-  margin: "20px 0",
-};
-
-const descriptionStyles = {
-  margin: "20px 0",
-  textAlign: "left" as "left",
-  fontSize: "20px",
-};
-
-const pageStyles = {
-  padding: "0 40px",
+const styles = {
+  cards: {
+    display: "flex",
+    flexWrap: "wrap" as "wrap",
+    justifyContent: "flex-start",
+    alignItems: "center",
+  },
+  title: {
+    margin: "20px 0",
+  },
+  description: {
+    margin: "20px 0",
+    textAlign: "left" as "left",
+    fontSize: "20px",
+  },
+  page: {
+    padding: "0 40px",
+  },
 };
 
 const ClientInfoPage: React.FC<ClientInfoPageProps> = ({
@@ -67,10 +66,12 @@ const ClientInfoPage: React.FC<ClientInfoPageProps> = ({
       return <Error message={error?.message || "Невідома помилка"} />;
     case "success":
       return (
-        <div style={pageStyles}>
-          <h1 style={titleStyles}>Вітаю, {clientInfo?.name}</h1>
-          <p style={descriptionStyles}>Оберіть картку для перегляду виписки:</p>
-          <div style={cardsStyles} className="cards">
+        <div style={styles.page}>
+          <h1 style={styles.title}>Вітаю, {clientInfo?.name}</h1>
+          <p style={styles.description}>
+            Оберіть картку для перегляду виписки:
+          </p>
+          <div style={styles.cards} className="cards">
             {clientInfo?.accounts?.map((account: accountInterface) => {
               return (
                 <Link key={account.id} to={"/cardInfo/" + account.id}>

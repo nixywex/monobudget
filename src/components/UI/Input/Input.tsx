@@ -1,8 +1,7 @@
-import React, { InputHTMLAttributes } from "react";
+import React from "react";
+import InputProps from "./Input.props";
 
 import "./Input.css";
-
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {}
 
 const Input: React.FC<InputProps> = (props) => {
   return <input {...props} className={"input"} />;

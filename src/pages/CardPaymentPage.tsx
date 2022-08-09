@@ -13,12 +13,13 @@ interface CardPaymentPageProps {
   token: string;
 }
 
-const descriptionStyle = {
-  marginTop: "20px",
-};
-
-const pageStyle = {
-  padding: "0 40px",
+const styles = {
+  description: {
+    marginTop: "20px",
+  },
+  page: {
+    padding: "0 40px",
+  },
 };
 
 const CardPaymentPage: React.FC<CardPaymentPageProps> = ({ token }) => {
@@ -55,8 +56,8 @@ const CardPaymentPage: React.FC<CardPaymentPageProps> = ({ token }) => {
       return <Error message={error?.message || "Невідома помилка"} />;
     case "success":
       return (
-        <div style={pageStyle}>
-          <h1 style={descriptionStyle}>Виписка за 31 день</h1>
+        <div style={styles.page}>
+          <h1 style={styles.description}>Виписка за 31 день</h1>
           <PaymentsList payments={payments} />
         </div>
       );

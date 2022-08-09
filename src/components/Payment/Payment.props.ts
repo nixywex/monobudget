@@ -1,4 +1,4 @@
-export default interface PaymentInterface {
+export default interface PaymentProps {
   time?: number;
   description: string;
   category?: string;

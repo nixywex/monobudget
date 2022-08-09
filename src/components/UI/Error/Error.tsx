@@ -1,11 +1,9 @@
 import React from "react";
+import ErrorProps from "./Error.props";
 
 import "./Error.css";
 
-interface ErrorInterface {
-  message: string;
-}
-const Error: React.FC<ErrorInterface> = ({ message }) => {
+const Error: React.FC<ErrorProps> = ({ message }) => {
   return (
     <div className={"error"}>
       <img

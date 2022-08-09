@@ -8,20 +8,18 @@ interface HomePageProps {
   submitToken: (token: string) => void;
 }
 
-const homePageStyle = {
-  display: "flex",
-  justifyItems: "center",
-  alignContent: "center",
-  flexDirection: "column" as "column",
-  width: "100%",
-};
-
-const linkStyle = {
-  color: "var(--primary)",
-};
-
-const buttonStyle = {
-  margin: "20px",
+const styles = {
+  page: {
+    display: "flex",
+    justifyItems: "center",
+    alignContent: "center",
+    flexDirection: "column" as "column",
+    width: "100%",
+  },
+  link: { color: "var(--primary)" },
+  button: {
+    margin: "20px",
+  },
 };
 
 const HomePage: React.FC<HomePageProps> = ({ submitToken }) => {
@@ -34,7 +32,7 @@ const HomePage: React.FC<HomePageProps> = ({ submitToken }) => {
   };
 
   return (
-    <div style={homePageStyle}>
+    <div style={styles.page}>
       <form
         onSubmit={(event) => {
           event.preventDefault();
@@ -48,7 +46,7 @@ const HomePage: React.FC<HomePageProps> = ({ submitToken }) => {
         />
         <Link to={"/clientInfo"}>
           <Button
-            style={buttonStyle}
+            style={styles.button}
             onClick={() => {
               submitToken(inputValue);
             }}
@@ -58,7 +56,7 @@ const HomePage: React.FC<HomePageProps> = ({ submitToken }) => {
           </Button>
         </Link>
       </form>
-      <Link style={linkStyle} to={"/how-to-get-token"}>
+      <Link style={styles.link} to={"/how-to-get-token"}>
         Як отримати токен?
       </Link>
     </div>

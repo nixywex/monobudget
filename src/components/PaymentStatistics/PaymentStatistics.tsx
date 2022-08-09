@@ -2,14 +2,11 @@ import React from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 import { paymentPreparedInterface } from "../../mono_api_interfaces";
+import PaymentStatisticsProps from "./PaymentStatics.props";
 
 import "./PaymentStatistics.css";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
-
-interface PaymentStatisticsProps {
-  payments: Array<paymentPreparedInterface>;
-}
 
 const PaymentStatistics: React.FC<PaymentStatisticsProps> = ({ payments }) => {
   const filteredPaymentsByCategory: any = {};

@@ -1,11 +1,11 @@
 import React from "react";
 import cn from "classnames";
 
-import PaymentInterface from "./Payment.props";
+import PaymentProps from "./Payment.props";
 
 import "./Payment.css";
 
-const Payment: React.FC<PaymentInterface> = ({
+const Payment: React.FC<PaymentProps> = ({
   description,
   amount,
   cardCurrency,

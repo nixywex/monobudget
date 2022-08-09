@@ -1,13 +1,10 @@
 import React from "react";
 import { paymentPreparedInterface } from "../../mono_api_interfaces";
+import PaymentsListProps from "./PaymentList.props";
 
 import Payment from "../Payment/Payment";
 
 import "./PaymentsList.css";
-
-interface PaymentsListProps {
-  payments: Array<paymentPreparedInterface>;
-}
 
 const PaymentsList: React.FC<PaymentsListProps> = ({ payments }) => {
   const spending: Array<paymentPreparedInterface> = payments.filter(
