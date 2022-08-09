@@ -63,32 +63,13 @@ const getPayments = async (
   url: string,
   token: string
 ): Promise<paymentPreparedInterface[] | null> => {
-  try {
-    const jsonData: paymentInterface[] = await getJsonPayments(url, token);
-    return getPaymentsList(jsonData);
-  } catch (e) {
-    if (axios.isAxiosError(e)) {
-      console.error("Something went wrong: " + e.message);
-    } else {
-      console.error("unexpected error");
-    }
-    return null;
-  }
+  const jsonData: paymentInterface[] = await getJsonPayments(url, token);
+  return getPaymentsList(jsonData);
 };
 
-const generateInfoURL = async (
-  id: string,
-  from: number,
-  to?: number
-): Promise<string | null> => {
-  try {
-    const urlSample = "https://api.monobank.ua/personal/statement/";
-    return urlSample + id + "/" + from + "/" + (to ? to : "");
-  } catch (e) {
-    if (axios.isAxiosError(e)) console.log(e.message);
-    else console.log("unexpected error");
-    return null;
-  }
+const generateInfoURL = (id: string, from: number, to?: number): string => {
+  const urlSample = "https://api.monobank.ua/personal/statement/";
+  return urlSample + id + "/" + from + "/" + (to ? to : "");
 };
 
 export { getPayments, getJsonPayments, generateInfoURL, getJsonClientInfo };
