@@ -1,17 +1,35 @@
-.payments-list {
+.payments__payments-list {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 40px 0;
 }
 
-.payments-list__income,
-.payments-list__spending {
-  width: 45%;
-  margin: 0 50px;
+.payments__payments-list__income,
+.payments__payments-list__spending {
+  width: 50%;
+  margin: 0 20px;
 }
 
-.payments-list__title {
+.payments__payments-list__title {
   margin: 20px 0;
+}
+
+.payments__top {
+  justify-content: space-between;
+  padding: 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.payments__top select {
+  margin: 0 20px;
+  background-color: var(--dark);
+  color: var(--white);
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: 700;
+  border: 1px solid var(--primary);
+  outline: var(--primary) solid;
 }

@@ -1,8 +1,7 @@
-.error__title {
+.error > * {
   margin: 20px;
 }
 
 .error__description {
-  margin: 20px;
   font-size: 20px;
 }

@@ -14,8 +14,10 @@ const styles = {
   list: {
     margin: "40px 0",
     fontSize: "22px",
+    listStylePosition: "inside" as "inside",
   },
   listItem: {
+    listStyleType: "decimal",
     margin: "10px 0",
   },
 };
@@ -24,18 +26,18 @@ const HowToGetTokenPage: React.FC = () => {
   return (
     <div style={styles.page}>
       <h1 style={styles.title}>Як отримати токен?</h1>
-      <ul style={styles.list}>
+      <ol style={styles.list}>
         <li style={styles.listItem}>
-          1. Перейдіть за посиланням api.monobank.ua.
+          Перейдіть за посиланням api.monobank.ua.
         </li>
         <li style={styles.listItem}>
-          2. Відскануйте QR-код за допомогою застосунку monobank на телефоні.
+          Відскануйте QR-код за допомогою застосунку monobank на телефоні.
         </li>
-        <li style={styles.listItem}>3. Нажміть “Отримати токен”.</li>
+        <li style={styles.listItem}>Нажміть “Отримати токен”.</li>
         <li style={styles.listItem}>
-          4. Скопіюйте токен і вставте до застосунку monobudget.
+          Скопіюйте токен і вставте до застосунку monobudget.
         </li>
-      </ul>
+      </ol>
       <Link to={"/"}>
         <Button>Повернутися на головну</Button>
       </Link>
