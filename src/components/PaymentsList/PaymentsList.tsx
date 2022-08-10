@@ -4,10 +4,14 @@ import PaymentsListProps from "./PaymentList.props";
 
 import Payment from "../Payment/Payment";
 import Button from "../UI/Button/Button";
+import Select from "../UI/Select/Select";
 
 import "./PaymentsList.css";
 
-const PaymentsList: React.FC<PaymentsListProps> = ({ payments }) => {
+const PaymentsList: React.FC<PaymentsListProps> = ({
+  payments,
+  handleChangeShowDiagram,
+}) => {
   const [sortingCriterion, setSortingCriterion] = useState<string>("date");
 
   const handleSelectChange = (
@@ -58,7 +62,7 @@ const PaymentsList: React.FC<PaymentsListProps> = ({ payments }) => {
       <div className={"payments__top"}>
         <div>
           <label htmlFor="sorting">Сортувати:</label>
-          <select
+          <Select
             value={sortingCriterion}
             onChange={(event) => handleSelectChange(event)}
             name="sorting"
@@ -67,9 +71,9 @@ const PaymentsList: React.FC<PaymentsListProps> = ({ payments }) => {
             <option value="date">За датою</option>
             <option value="sumUp">Від меншої суми, до більшої</option>
             <option value="sumDown">Від більшої суми, до меншої</option>
-          </select>
+          </Select>
         </div>
-        <Button>Показати діаграмму</Button>
+        <Button onClick={handleChangeShowDiagram}>Показати діаграмму</Button>
       </div>
       <div className="payments__payments-list">
         <div className="payments__payments-list__spending">

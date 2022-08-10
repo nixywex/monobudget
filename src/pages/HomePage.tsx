@@ -44,6 +44,7 @@ const HomePage: React.FC<HomePageProps> = ({ submitToken }) => {
           type="text"
           onChange={(event) => handleInputChange(event)}
         />
+
         <Link to={"/clientInfo"}>
           <Button
             style={styles.button}
@@ -56,9 +57,11 @@ const HomePage: React.FC<HomePageProps> = ({ submitToken }) => {
           </Button>
         </Link>
       </form>
-      <Link style={styles.link} to={"/how-to-get-token"}>
-        Як отримати токен?
-      </Link>
+      <div>
+        <Link style={styles.link} to={"/how-to-get-token"}>
+          Як отримати токен?
+        </Link>
+      </div>
     </div>
   );
 };

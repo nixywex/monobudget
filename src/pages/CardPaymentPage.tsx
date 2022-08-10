@@ -8,6 +8,7 @@ import useStatus from "../hooks/useStatus";
 import PaymentsList from "../components/PaymentsList/PaymentsList";
 import Loader from "../components/UI/Loader/Loader";
 import Error from "../components/UI/Error/Error";
+import PaymentsDiagram from "../components/PaymentsDiagram/PaymentsDiagram";
 
 interface CardPaymentPageProps {
   token: string;
@@ -26,6 +27,11 @@ const CardPaymentPage: React.FC<CardPaymentPageProps> = ({ token }) => {
   const { cardID } = useParams();
   const [payments, setPayments] = useState<Array<paymentPreparedInterface>>([]);
   const { status, setStatus, error, setError } = useStatus();
+  const [showDiagram, setShowDiagram] = useState<boolean>(false);
+
+  const handleChangeShowDiagram = (): void => {
+    setShowDiagram((prev) => !prev);
+  };
 
   useEffect(() => {
     if (cardID && token) {
@@ -58,7 +64,17 @@ const CardPaymentPage: React.FC<CardPaymentPageProps> = ({ token }) => {
       return (
         <div style={styles.page}>
           <h1 style={styles.description}>Виписка за 31 день</h1>
-          <PaymentsList payments={payments} />
+          {showDiagram ? (
+            <PaymentsDiagram
+              payments={payments}
+              handleChangeShowDiagram={handleChangeShowDiagram}
+            />
+          ) : (
+            <PaymentsList
+              payments={payments}
+              handleChangeShowDiagram={handleChangeShowDiagram}
+            />
+          )}
         </div>
       );
     default:

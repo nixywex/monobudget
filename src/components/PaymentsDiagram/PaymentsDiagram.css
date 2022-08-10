@@ -1,0 +1,18 @@
+.diagram {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.diagram__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+  width: 100%;
+}
+
+.diagram__doughnut {
+  width: 60%;
+}
