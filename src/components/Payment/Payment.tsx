@@ -14,19 +14,19 @@ const Payment: React.FC<PaymentProps> = ({
   operationAmount,
 }) => {
   return (
-    <div className="payment">
-      <div className="payment__info">
-        <div className="payment__info__description">
+    <div className='payment'>
+      <div className='payment__info'>
+        <div className='payment__info__description'>
           <h1>{description}</h1>
         </div>
         {category ? (
-          <div className="payment__info__category">
+          <div className='payment__info__category'>
             <p>{category}</p>
           </div>
         ) : null}
       </div>
-      <div className="payment__sum">
-        <div className="payment__sum__amount">
+      <div className='payment__sum'>
+        <div className='payment__sum__amount'>
           <p
             className={cn("", {
               payment__sum_spend: amount < 0,
@@ -37,7 +37,7 @@ const Payment: React.FC<PaymentProps> = ({
           </p>
         </div>
         {operationAmount && (
-          <div className="payment__sum__operationAmount">
+          <div className='payment__sum__operationAmount'>
             <p
               className={cn("", {
                 payment__sum_spend: amount < 0,

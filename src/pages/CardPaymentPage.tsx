@@ -40,17 +40,13 @@ const CardPaymentPage: React.FC<CardPaymentPageProps> = ({ token }) => {
       const url: string = generateInfoURL(cardID, date);
 
       getPayments(url, token)
-        .then((responsePayments) =>
-          responsePayments ? setPayments(responsePayments) : null
-        )
+        .then((responsePayments) => (responsePayments ? setPayments(responsePayments) : null))
         .then(() => {
           setStatus("success");
         })
         .catch((e) => {
           setStatus("error");
-          setError(
-            axios.isAxiosError(e) ? e : new (Error as any)("Unexpected error")
-          );
+          setError(axios.isAxiosError(e) ? e : new (Error as any)("Unexpected error"));
         });
     }
   }, [cardID, token]);
@@ -70,10 +66,7 @@ const CardPaymentPage: React.FC<CardPaymentPageProps> = ({ token }) => {
               handleChangeShowDiagram={handleChangeShowDiagram}
             />
           ) : (
-            <PaymentsList
-              payments={payments}
-              handleChangeShowDiagram={handleChangeShowDiagram}
-            />
+            <PaymentsList payments={payments} handleChangeShowDiagram={handleChangeShowDiagram} />
           )}
         </div>
       );

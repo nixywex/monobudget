@@ -1,9 +1,12 @@
 .App {
-  text-align: center;
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 0 30px;
+	position: relative;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	min-height: 100vh;
+	padding: 0 30px;
+
+	text-align: center;
 }

@@ -45,9 +45,4 @@ interface clientInfoInterface {
   webHookUrl: string;
 }
 
-export type {
-  paymentInterface,
-  paymentPreparedInterface,
-  clientInfoInterface,
-  accountInterface,
-};
+export type { paymentInterface, paymentPreparedInterface, clientInfoInterface, accountInterface };

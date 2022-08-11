@@ -35,13 +35,8 @@ const styles = {
   },
 };
 
-const ClientInfoPage: React.FC<ClientInfoPageProps> = ({
-  token,
-  prepareCardNumber,
-}) => {
-  const [clientInfo, setClientInfo] = useState<clientInfoInterface | null>(
-    null
-  );
+const ClientInfoPage: React.FC<ClientInfoPageProps> = ({ token, prepareCardNumber }) => {
+  const [clientInfo, setClientInfo] = useState<clientInfoInterface | null>(null);
   const { status, setStatus, error, setError } = useStatus();
 
   useEffect(() => {
@@ -52,9 +47,7 @@ const ClientInfoPage: React.FC<ClientInfoPageProps> = ({
         .then(() => setStatus("success"))
         .catch((e) => {
           setStatus("error");
-          setError(
-            axios.isAxiosError(e) ? e : new (Error as any)("Unexpected error")
-          );
+          setError(axios.isAxiosError(e) ? e : new (Error as any)("Unexpected error"));
         });
     }
   }, [token]);
@@ -68,10 +61,8 @@ const ClientInfoPage: React.FC<ClientInfoPageProps> = ({
       return (
         <div style={styles.page}>
           <h1 style={styles.title}>Вітаю, {clientInfo?.name}</h1>
-          <p style={styles.description}>
-            Оберіть картку для перегляду виписки:
-          </p>
-          <div style={styles.cards} className="cards">
+          <p style={styles.description}>Оберіть картку для перегляду виписки:</p>
+          <div style={styles.cards} className='cards'>
             {clientInfo?.accounts?.map((account: accountInterface) => {
               return (
                 <Link key={account.id} to={"/cardInfo/" + account.id}>

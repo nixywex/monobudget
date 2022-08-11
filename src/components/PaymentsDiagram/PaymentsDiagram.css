@@ -1,18 +1,19 @@
 .diagram {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
 }
 
 .diagram__top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 40px;
-  width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	width: 100%;
+	padding: 40px;
 }
 
 .diagram__doughnut {
-  width: 60%;
+	width: 60%;
 }

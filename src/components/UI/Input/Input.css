@@ -1,12 +1,14 @@
 .input {
-  border: none;
-  font-size: 20px;
-  padding: 15px;
-  border-radius: 10px;
-  width: 25%;
-  outline: none;
+	width: 25%;
+	padding: 15px;
+
+	border: none;
+	border-radius: 10px;
+	outline: none;
+
+	font-size: 20px;
 }
 
 .input:focus {
-  outline: var(--primary) solid;
+	outline: var(--primary) solid;
 }

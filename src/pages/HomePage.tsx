@@ -25,9 +25,7 @@ const styles = {
 const HomePage: React.FC<HomePageProps> = ({ submitToken }) => {
   const [inputValue, setInputValue] = useState<string>("");
 
-  const handleInputChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ): void => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setInputValue(event.target.value);
   };
 
@@ -41,7 +39,7 @@ const HomePage: React.FC<HomePageProps> = ({ submitToken }) => {
         <h1>Для отримання інформації введіть токен</h1>
         <Input
           placeholder={"Токен..."}
-          type="text"
+          type='text'
           onChange={(event) => handleInputChange(event)}
         />
 

@@ -26,11 +26,7 @@ const PaymentsDiagram: React.FC<PaymentStatisticsProps> = ({
   };
 
   payments?.forEach((payment: paymentPreparedInterface) => {
-    if (
-      isIncome
-        ? payment.sumOperationCurrency > 0
-        : payment.sumOperationCurrency <= 0
-    ) {
+    if (isIncome ? payment.sumOperationCurrency > 0 : payment.sumOperationCurrency <= 0) {
       if (!filteredPaymentsByCategory[payment.category]) {
         sumByCategory[payment.category] = 0;
         filteredPaymentsByCategory[payment.category] = [];
@@ -40,9 +36,11 @@ const PaymentsDiagram: React.FC<PaymentStatisticsProps> = ({
     }
   });
 
-  for (let key in sumByCategory) {
-    categories.push(key);
-    sums.push(sumByCategory[key]);
+  for (const key in sumByCategory) {
+    if (Object.prototype.hasOwnProperty.call(sumByCategory, key)) {
+      categories.push(key);
+      sums.push(sumByCategory[key]);
+    }
   }
 
   const data = {
@@ -75,16 +73,16 @@ const PaymentsDiagram: React.FC<PaymentStatisticsProps> = ({
   return (
     <div className={"diagram"}>
       <div className={"diagram__top"}>
-        <div className="diagram__top__select">
-          <label htmlFor="sorting">Сортувати:</label>
+        <div className='diagram__top__select'>
+          <label htmlFor='sorting'>Сортувати:</label>
           <Select
             value={isIncome ? "income" : "spend"}
             onChange={(event) => handleSelectChange(event)}
-            name="sorting"
-            id="sorting"
+            name='sorting'
+            id='sorting'
           >
-            <option value="income">Показати надходження</option>
-            <option value="spend">Показати витрати</option>
+            <option value='income'>Показати надходження</option>
+            <option value='spend'>Показати витрати</option>
           </Select>
         </div>
         <Button onClick={handleChangeShowDiagram}>Показати список</Button>

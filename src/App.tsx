@@ -29,24 +29,16 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="App">
+    <div className='App'>
       <Header />
       <Routes>
-        <Route path="/" element={<HomePage submitToken={submitToken} />} />
+        <Route path='/' element={<HomePage submitToken={submitToken} />} />
         <Route
-          path="/clientInfo"
-          element={
-            <ClientInfoPage
-              token={token}
-              prepareCardNumber={prepareCardNumber}
-            />
-          }
+          path='/clientInfo'
+          element={<ClientInfoPage token={token} prepareCardNumber={prepareCardNumber} />}
         />
-        <Route
-          path="/cardInfo/:cardID"
-          element={<CardPaymentPage token={token} />}
-        />
-        <Route path="/how-to-get-token" element={<HowToGetTokenPage />} />
+        <Route path='/cardInfo/:cardID' element={<CardPaymentPage token={token} />} />
+        <Route path='/how-to-get-token' element={<HowToGetTokenPage />} />
       </Routes>
       <Footer />
     </div>

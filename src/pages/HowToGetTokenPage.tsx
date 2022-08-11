@@ -27,16 +27,12 @@ const HowToGetTokenPage: React.FC = () => {
     <div style={styles.page}>
       <h1 style={styles.title}>Як отримати токен?</h1>
       <ol style={styles.list}>
-        <li style={styles.listItem}>
-          Перейдіть за посиланням api.monobank.ua.
-        </li>
+        <li style={styles.listItem}>Перейдіть за посиланням api.monobank.ua.</li>
         <li style={styles.listItem}>
           Відскануйте QR-код за допомогою застосунку monobank на телефоні.
         </li>
         <li style={styles.listItem}>Нажміть “Отримати токен”.</li>
-        <li style={styles.listItem}>
-          Скопіюйте токен і вставте до застосунку monobudget.
-        </li>
+        <li style={styles.listItem}>Скопіюйте токен і вставте до застосунку monobudget.</li>
       </ol>
       <Link to={"/"}>
         <Button>Повернутися на головну</Button>

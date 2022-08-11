@@ -7,9 +7,7 @@ import {
   clientInfoInterface,
 } from "./mono_api_interfaces";
 
-const getJsonClientInfo = async (
-  token: string
-): Promise<clientInfoInterface> => {
+const getJsonClientInfo = async (token: string): Promise<clientInfoInterface> => {
   const url = "https://api.monobank.ua/personal/client-info";
 
   return (
@@ -21,10 +19,7 @@ const getJsonClientInfo = async (
   )?.data;
 };
 
-const getJsonPayments = async (
-  url: string,
-  token: string
-): Promise<paymentInterface[]> => {
+const getJsonPayments = async (url: string, token: string): Promise<paymentInterface[]> => {
   return (
     await axios.get(url, {
       headers: {
@@ -34,13 +29,9 @@ const getJsonPayments = async (
   )?.data;
 };
 
-const getPaymentsList = (
-  payments: Array<paymentInterface>
-): Array<paymentPreparedInterface> => {
+const getPaymentsList = (payments: Array<paymentInterface>): Array<paymentPreparedInterface> => {
   return payments.map((payment) => {
-    let currencyCode: string | undefined = cc.number(
-      String(payment.currencyCode)
-    )?.code;
+    let currencyCode: string | undefined = cc.number(String(payment.currencyCode))?.code;
     if (!currencyCode) currencyCode = "UAH";
 
     let category: string | null = getMccCategory(payment.mcc);
@@ -61,7 +52,7 @@ const getPaymentsList = (
 
 const getPayments = async (
   url: string,
-  token: string
+  token: string,
 ): Promise<paymentPreparedInterface[] | null> => {
   const jsonData: paymentInterface[] = await getJsonPayments(url, token);
   return getPaymentsList(jsonData);

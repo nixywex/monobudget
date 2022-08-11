@@ -1,24 +1,26 @@
 .payments__payments-list {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+
+	width: 100%;
 }
 
 .payments__payments-list__income,
 .payments__payments-list__spending {
-  width: 50%;
-  margin: 0 20px;
+	width: 50%;
+	margin: 0 20px;
 }
 
 .payments__payments-list__title {
-  margin: 20px 0;
+	margin: 20px 0;
 }
 
 .payments__top {
-  justify-content: space-between;
-  padding: 40px;
-  width: 100%;
-  display: flex;
-  align-items: center;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	width: 100%;
+	padding: 40px;
 }

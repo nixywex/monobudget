@@ -1,39 +1,41 @@
 .payment {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  border-bottom: 1px solid var(--white);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	width: 100%;
+	padding: 20px;
+
+	border-bottom: 1px solid var(--white);
 }
 
 .payment__info__description h1,
 .payment__sum__amount p {
-  font-size: 20px;
-  font-weight: 700;
+	font-size: 20px;
+	font-weight: 700;
 }
 
 .payment__info__description h1 {
-  text-align: left;
+	text-align: left;
 }
 
 .payment__info__category p,
 .payment__sum__operationAmount p {
-  font-size: 14px;
+	font-size: 14px;
 }
 
 .payment__info__category p {
-  text-align: left;
+	text-align: left;
 }
 
 .payment__sum__operationAmount p {
-  text-align: right;
+	text-align: right;
 }
 
 .payment__sum_spend {
-  color: var(--white);
+	color: var(--white);
 }
 
 .payment__sum_income {
-  color: var(--succes);
+	color: var(--succes);
 }

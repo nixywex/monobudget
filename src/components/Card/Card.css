@@ -1,72 +1,79 @@
 .card {
-  height: 230px;
-  width: 385px;
-  border-radius: 32px;
-  padding: 30px;
-  box-shadow: 0 4px 200px rgba(0, 0, 0, 0.25);
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: 20px;
-  transition: 0.2s ease-out;
+	position: relative;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	width: 385px;
+	height: 230px;
+	margin: 20px;
+	padding: 30px;
+
+	transition: 0.2s ease-out;
+
+	border-radius: 32px;
+	box-shadow: 0 4px 200px rgb(0 0 0 / 25%);
 }
 
 .card:hover {
-  transform: scale(1.05);
+	transform: scale(1.05);
 }
 
 .card_white-card {
-  background: linear-gradient(126.23deg, #ffffff 17.55%, #efefef 66.54%);
+	background: linear-gradient(126.23deg, #FFF 17.55%, #EFEFEF 66.54%);
 }
 
 .card_black-card {
-  background: linear-gradient(126.23deg, #222325 17.55%, #2b2e38 66.54%);
+	background: linear-gradient(126.23deg, #222325 17.55%, #2B2E38 66.54%);
 }
 
 .card_e-aid-card {
-  background: linear-gradient(126.23deg, #aceec1 17.55%, #7db4e3 82.28%);
+	background: linear-gradient(126.23deg, #ACEEC1 17.55%, #7DB4E3 82.28%);
 }
 
 .card__logo {
-  text-align: left;
+	text-align: left;
 }
 
 .card__card-num p {
-  font-family: "Courier", monospace;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 22px;
-  line-height: 30px;
-  letter-spacing: 0.1em;
-  margin-top: 25px;
+	margin-top: 25px;
+
+	letter-spacing: 0.1em;
+
+	font-family: Courier, monospace;
+	font-size: 22px;
+	font-weight: 400;
+	font-style: normal;
+	line-height: 30px;
 }
 
 .card__card-num_white-card p,
 .card__card-num_e-aid-card p {
-  color: var(--black);
+	color: var(--black);
 }
 
 .card__card-num_black-card p {
-  color: var(--white);
+	color: var(--white);
 }
 
 .card__card-balance {
-  text-align: right;
+	text-align: right;
 }
 
 .card__card-balance p {
-  font-style: normal;
-  font-weight: 700;
-  font-size: 25px;
-  margin-top: 25px;
+	margin-top: 25px;
+
+	font-size: 25px;
+	font-weight: 700;
+	font-style: normal;
 }
 
 .card__card-balance_white-card p,
 .card__card-balance_e-aid-card p {
-  color: var(--black);
+	color: var(--black);
 }
 
 .card__card-balance_black-card p {
-  color: var(--white);
+	color: var(--white);
 }

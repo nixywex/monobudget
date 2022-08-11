@@ -5,12 +5,7 @@ import CardProps from "./Card.props";
 
 import "./Card.css";
 
-const Card: React.FC<CardProps> = ({
-  cardNum,
-  balance,
-  cardCurrency = "UAH",
-  type = "black",
-}) => {
+const Card: React.FC<CardProps> = ({ cardNum, balance, cardCurrency = "UAH", type = "black" }) => {
   return (
     <div
       className={cn("card", {
@@ -19,10 +14,10 @@ const Card: React.FC<CardProps> = ({
         "card_e-aid-card": type === "eAid",
       })}
     >
-      <div className="card__logo">
+      <div className='card__logo'>
         <img
           src={`./mono_logo${type === "black" ? "_white" : ""}.png`}
-          alt="monobank logo"
+          alt='monobank logo'
           width={110}
           height={30}
         />

@@ -8,21 +8,16 @@ import Select from "../UI/Select/Select";
 
 import "./PaymentsList.css";
 
-const PaymentsList: React.FC<PaymentsListProps> = ({
-  payments,
-  handleChangeShowDiagram,
-}) => {
+const PaymentsList: React.FC<PaymentsListProps> = ({ payments, handleChangeShowDiagram }) => {
   const [sortingCriterion, setSortingCriterion] = useState<string>("date");
 
-  const handleSelectChange = (
-    selectObject: React.ChangeEvent<HTMLSelectElement>
-  ) => {
+  const handleSelectChange = (selectObject: React.ChangeEvent<HTMLSelectElement>) => {
     setSortingCriterion(selectObject.target.value);
   };
 
   const sortPayments = (
     sortingPayments: Array<paymentPreparedInterface>,
-    criterion: string
+    criterion: string,
   ): Array<paymentPreparedInterface> => {
     switch (criterion) {
       case "date":
@@ -51,33 +46,33 @@ const PaymentsList: React.FC<PaymentsListProps> = ({
   payments = sortPayments(payments, sortingCriterion);
 
   const spending: Array<paymentPreparedInterface> = payments.filter(
-    (payment) => payment.sumOperationCurrency <= 0
+    (payment) => payment.sumOperationCurrency <= 0,
   );
   const income: Array<paymentPreparedInterface> = payments.filter(
-    (payment) => payment.sumOperationCurrency > 0
+    (payment) => payment.sumOperationCurrency > 0,
   );
 
   return (
     <div className={"payments"}>
       <div className={"payments__top"}>
         <div>
-          <label htmlFor="sorting">Сортувати:</label>
+          <label htmlFor='sorting'>Сортувати:</label>
           <Select
             value={sortingCriterion}
             onChange={(event) => handleSelectChange(event)}
-            name="sorting"
-            id="sorting"
+            name='sorting'
+            id='sorting'
           >
-            <option value="date">За датою</option>
-            <option value="sumUp">Від меншої суми, до більшої</option>
-            <option value="sumDown">Від більшої суми, до меншої</option>
+            <option value='date'>За датою</option>
+            <option value='sumUp'>Від меншої суми, до більшої</option>
+            <option value='sumDown'>Від більшої суми, до меншої</option>
           </Select>
         </div>
         <Button onClick={handleChangeShowDiagram}>Показати діаграмму</Button>
       </div>
-      <div className="payments__payments-list">
-        <div className="payments__payments-list__spending">
-          <h1 className="payments__payments-list__title">Витрати</h1>
+      <div className='payments__payments-list'>
+        <div className='payments__payments-list__spending'>
+          <h1 className='payments__payments-list__title'>Витрати</h1>
           {spending.map((payment: paymentPreparedInterface) => {
             return (
               <Payment
@@ -92,8 +87,8 @@ const PaymentsList: React.FC<PaymentsListProps> = ({
             );
           })}
         </div>
-        <div className="payments__payments-list__income">
-          <h1 className="payments__payments-list__title">Надходження</h1>
+        <div className='payments__payments-list__income'>
+          <h1 className='payments__payments-list__title'>Надходження</h1>
           {income.map((payment: paymentPreparedInterface) => {
             return (
               <Payment
