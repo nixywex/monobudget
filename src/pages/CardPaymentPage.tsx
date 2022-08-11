@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { generateInfoURL, getPayments } from "../mono_api";
 import { paymentPreparedInterface } from "../mono_api_interfaces";
 import useStatus from "../hooks/useStatus";
+import { css } from "@emotion/css";
 
 import PaymentsList from "../components/PaymentsList/PaymentsList";
 import Loader from "../components/UI/Loader/Loader";
@@ -13,15 +14,6 @@ import PaymentsDiagram from "../components/PaymentsDiagram/PaymentsDiagram";
 interface CardPaymentPageProps {
   token: string;
 }
-
-const styles = {
-  description: {
-    marginTop: "20px",
-  },
-  page: {
-    padding: "0 40px",
-  },
-};
 
 const CardPaymentPage: React.FC<CardPaymentPageProps> = ({ token }) => {
   const { cardID } = useParams();
@@ -58,8 +50,24 @@ const CardPaymentPage: React.FC<CardPaymentPageProps> = ({ token }) => {
       return <Error message={error?.message || "Невідома помилка"} />;
     case "success":
       return (
-        <div style={styles.page}>
-          <h1 style={styles.description}>Виписка за 31 день</h1>
+        <div>
+          <h1
+            className={css`
+              margin-top: 20px;
+
+              @media (max-width: 425px) {
+                font-size: 30px;
+              }
+              @media (max-width: 375px) {
+                font-size: 25px;
+              }
+              @media (max-width: 320px) {
+                font-size: 20px;
+              }
+            `}
+          >
+            Виписка за 31 день
+          </h1>
           {showDiagram ? (
             <PaymentsDiagram
               payments={payments}

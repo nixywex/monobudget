@@ -4,3 +4,9 @@
 	font-size: 23px;
 	font-weight: 900;
 }
+
+@media (max-width: 767px) {
+	.logo {
+		font-size: 18px;
+	}
+}

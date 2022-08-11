@@ -5,8 +5,37 @@
 	flex-direction: column;
 	justify-content: space-between;
 
+	max-width: 1440px;
+
 	min-height: 100vh;
-	padding: 0 30px;
 
 	text-align: center;
+}
+
+.wrapper {
+	padding: 0 40px;
+}
+
+@media (max-width: 1440px) {
+	.App {
+		max-width: 1440px;
+	}
+}
+
+@media (max-width: 1200px) {
+	.App {
+		max-width: 970px;
+	}
+}
+
+@media (max-width: 992px) {
+	.App {
+		max-width: 800px;
+	}
+}
+
+@media (max-width: 767px) {
+	.App {
+		max-width: none;
+	}
 }

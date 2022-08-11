@@ -12,3 +12,17 @@
 .input:focus {
 	outline: var(--primary) solid;
 }
+
+@media (max-width: 1200px) {
+	.input {
+		width: 40%;
+	}
+}
+
+@media (max-width: 767px) {
+	.input {
+		width: 70%;
+		margin: 20px 20px 0;
+		padding: 10px 15px;
+	}
+}

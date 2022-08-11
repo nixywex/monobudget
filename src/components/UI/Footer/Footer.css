@@ -14,3 +14,9 @@
 
 	color: var(--primary);
 }
+
+@media (max-width: 767px) {
+	.footer {
+		font-size: 13px;
+	}
+}

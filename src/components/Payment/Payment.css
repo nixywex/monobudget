@@ -9,6 +9,13 @@
 	border-bottom: 1px solid var(--white);
 }
 
+.payment__info {
+	display: flex;
+	flex-direction: column;
+
+	max-width: 70%;
+}
+
 .payment__info__description h1,
 .payment__sum__amount p {
 	font-size: 20px;
@@ -38,4 +45,38 @@
 
 .payment__sum_income {
 	color: var(--succes);
+}
+
+@media (max-width: 1200px) {
+	.payment__info__description h1,
+	.payment__sum__amount p {
+		font-size: 18px;
+	}
+}
+
+@media (max-width: 992px) {
+	.payment__info__description h1,
+	.payment__sum__amount p {
+		font-size: 15px;
+	}
+
+	.payments__payments-list__title {
+		font-size: 25px;
+	}
+}
+
+@media (max-width: 400px) {
+	.payment__info__description h1,
+	.payment__sum__amount p {
+		font-size: 13px;
+	}
+
+	.payment__info__category p,
+	.payment__sum__operationAmount p {
+		font-size: 11px;
+	}
+
+	.payments__payments-list__title {
+		font-size: 20px;
+	}
 }

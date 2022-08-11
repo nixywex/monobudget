@@ -44,7 +44,7 @@ const Payment: React.FC<PaymentProps> = ({
                 payment__sum_income: amount > 0,
               })}
             >
-              {operationAmount} {currency && "UAH"}
+              {operationAmount} {currency}
             </p>
           </div>
         )}

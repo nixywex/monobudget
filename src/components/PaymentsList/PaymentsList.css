@@ -24,3 +24,38 @@
 	width: 100%;
 	padding: 40px;
 }
+
+@media (max-width: 767px) {
+	.payments__payments-list {
+		align-items: center;
+		flex-direction: column;
+	}
+
+	.payments__top {
+		align-items: center;
+		flex-direction: column;
+
+		padding: 20px;
+	}
+
+	.payments__top > * {
+		margin: 10px;
+	}
+}
+
+@media (max-width: 590px) {
+	.payments__top__select {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+	}
+
+	.payments__top__select > * {
+		margin: 10px;
+	}
+
+	.payments__payments-list__income,
+	.payments__payments-list__spending {
+		width: 80%;
+	}
+}

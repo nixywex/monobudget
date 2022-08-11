@@ -3,3 +3,9 @@
 
 	padding: 20px 40px;
 }
+
+@media (max-width: 425px) {
+	.header {
+		justify-content: center;
+	}
+}

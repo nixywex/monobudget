@@ -88,7 +88,7 @@ const PaymentsDiagram: React.FC<PaymentStatisticsProps> = ({
         <Button onClick={handleChangeShowDiagram}>Показати список</Button>
       </div>
       <div className={"diagram__doughnut"}>
-        <Doughnut data={data} />
+        {categories.length && sums.length ? <Doughnut data={data} /> : <p>Список пустий</p>}
       </div>
     </div>
   );

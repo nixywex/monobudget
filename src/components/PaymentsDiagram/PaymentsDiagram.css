@@ -17,3 +17,42 @@
 .diagram__doughnut {
 	width: 60%;
 }
+
+@media (max-width: 767px) {
+	.diagram__top {
+		align-items: center;
+		flex-direction: column;
+
+		padding: 20px;
+	}
+
+	.diagram__top > * {
+		margin: 10px;
+	}
+
+	.diagram__doughnut {
+		width: 80%;
+	}
+}
+
+@media (max-width: 590px) {
+	.diagram__top__select {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+	}
+
+	.diagram__top__select > * {
+		margin: 10px;
+	}
+
+	.diagram__doughnut {
+		width: 100%;
+	}
+}
+
+@media (max-width: 500px) {
+	.diagram__doughnut {
+		width: 80%;
+	}
+}

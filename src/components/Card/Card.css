@@ -77,3 +77,43 @@
 .card__card-balance_black-card p {
 	color: var(--white);
 }
+
+@media (max-width: 505px) {
+	.card {
+		width: 320px;
+		height: 180px;
+		padding: 20px;
+	}
+
+	.card__card-num p,
+	.card__card-balance p {
+		margin-top: 15px;
+
+		font-size: 15px;
+	}
+
+	.card__logo img {
+		width: 90px;
+		height: 25px;
+	}
+}
+
+@media (max-width: 425px) {
+	.card {
+		width: 230px;
+		height: 140px;
+		margin: 10px;
+	}
+
+	.card__card-num p,
+	.card__card-balance p {
+		margin-top: 15px;
+
+		font-size: 13px;
+	}
+
+	.card__logo img {
+		width: 70px;
+		height: 20px;
+	}
+}

@@ -55,7 +55,7 @@ const PaymentsList: React.FC<PaymentsListProps> = ({ payments, handleChangeShowD
   return (
     <div className={"payments"}>
       <div className={"payments__top"}>
-        <div>
+        <div className='payments__top__select'>
           <label htmlFor='sorting'>Сортувати:</label>
           <Select
             value={sortingCriterion}
@@ -68,40 +68,50 @@ const PaymentsList: React.FC<PaymentsListProps> = ({ payments, handleChangeShowD
             <option value='sumDown'>Від більшої суми, до меншої</option>
           </Select>
         </div>
-        <Button onClick={handleChangeShowDiagram}>Показати діаграмму</Button>
+        <Button className='payments__top__button' onClick={handleChangeShowDiagram}>
+          Показати діаграмму
+        </Button>
       </div>
       <div className='payments__payments-list'>
         <div className='payments__payments-list__spending'>
           <h1 className='payments__payments-list__title'>Витрати</h1>
-          {spending.map((payment: paymentPreparedInterface) => {
-            return (
-              <Payment
-                key={payment.id}
-                description={payment.paymentDescription}
-                amount={payment.sumCardCurrency}
-                cardCurrency={"UAH"}
-                operationAmount={payment.sumOperationCurrency}
-                currency={payment.currency}
-                category={payment.category}
-              />
-            );
-          })}
+          {spending.length ? (
+            spending.map((payment: paymentPreparedInterface) => {
+              return (
+                <Payment
+                  key={payment.id}
+                  description={payment.paymentDescription}
+                  amount={payment.sumCardCurrency}
+                  cardCurrency={"UAH"}
+                  operationAmount={payment.sumOperationCurrency}
+                  currency={payment.currency}
+                  category={payment.category}
+                />
+              );
+            })
+          ) : (
+            <p>Список пустий</p>
+          )}
         </div>
         <div className='payments__payments-list__income'>
           <h1 className='payments__payments-list__title'>Надходження</h1>
-          {income.map((payment: paymentPreparedInterface) => {
-            return (
-              <Payment
-                key={payment.id}
-                description={payment.paymentDescription}
-                amount={payment.sumCardCurrency}
-                cardCurrency={"UAH"}
-                operationAmount={payment.sumOperationCurrency}
-                currency={payment.currency}
-                category={payment.category}
-              />
-            );
-          })}
+          {income.length ? (
+            income.map((payment: paymentPreparedInterface) => {
+              return (
+                <Payment
+                  key={payment.id}
+                  description={payment.paymentDescription}
+                  amount={payment.sumCardCurrency}
+                  cardCurrency={"UAH"}
+                  operationAmount={payment.sumOperationCurrency}
+                  currency={payment.currency}
+                  category={payment.category}
+                />
+              );
+            })
+          ) : (
+            <p>Список пустий</p>
+          )}
         </div>
       </div>
     </div>

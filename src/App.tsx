@@ -31,15 +31,17 @@ const App: React.FC = () => {
   return (
     <div className='App'>
       <Header />
-      <Routes>
-        <Route path='/' element={<HomePage submitToken={submitToken} />} />
-        <Route
-          path='/clientInfo'
-          element={<ClientInfoPage token={token} prepareCardNumber={prepareCardNumber} />}
-        />
-        <Route path='/cardInfo/:cardID' element={<CardPaymentPage token={token} />} />
-        <Route path='/how-to-get-token' element={<HowToGetTokenPage />} />
-      </Routes>
+      <div className='wrapper'>
+        <Routes>
+          <Route path='/' element={<HomePage submitToken={submitToken} />} />
+          <Route
+            path='/clientInfo'
+            element={<ClientInfoPage token={token} prepareCardNumber={prepareCardNumber} />}
+          />
+          <Route path='/cardInfo/:cardID' element={<CardPaymentPage token={token} />} />
+          <Route path='/how-to-get-token' element={<HowToGetTokenPage />} />
+        </Routes>
+      </div>
       <Footer />
     </div>
   );

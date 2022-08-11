@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import cc from "currency-codes";
 import { clientInfoInterface, accountInterface } from "../mono_api_interfaces";
 import useStatus from "../hooks/useStatus";
+import { css } from "@emotion/css";
 
 import Card from "../components/Card/Card";
 import Loader from "../components/UI/Loader/Loader";
@@ -14,26 +15,6 @@ interface ClientInfoPageProps {
   token: string;
   prepareCardNumber: (number: string) => string;
 }
-
-const styles = {
-  cards: {
-    display: "flex",
-    flexWrap: "wrap" as "wrap",
-    justifyContent: "flex-start",
-    alignItems: "center",
-  },
-  title: {
-    margin: "20px 0",
-  },
-  description: {
-    margin: "20px 0",
-    textAlign: "left" as "left",
-    fontSize: "20px",
-  },
-  page: {
-    padding: "0 40px",
-  },
-};
 
 const ClientInfoPage: React.FC<ClientInfoPageProps> = ({ token, prepareCardNumber }) => {
   const [clientInfo, setClientInfo] = useState<clientInfoInterface | null>(null);
@@ -59,10 +40,41 @@ const ClientInfoPage: React.FC<ClientInfoPageProps> = ({ token, prepareCardNumbe
       return <Error message={error?.message || "Невідома помилка"} />;
     case "success":
       return (
-        <div style={styles.page}>
-          <h1 style={styles.title}>Вітаю, {clientInfo?.name}</h1>
-          <p style={styles.description}>Оберіть картку для перегляду виписки:</p>
-          <div style={styles.cards} className='cards'>
+        <div className={css``}>
+          <h1
+            className={css`
+              @media (max-width: 445px) {
+                font-size: 25px;
+              }
+            `}
+          >
+            Вітаю, {clientInfo?.name}
+          </h1>
+          <p
+            className={css`
+              margin: 20px 0;
+              text-align: left;
+              font-size: 20px;
+
+              @media (max-width: 992px) {
+                text-align: center;
+              }
+            `}
+          >
+            Оберіть картку для перегляду виписки:
+          </p>
+          <div
+            className={css`
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: flex-start;
+              align-items: center;
+
+              @media (max-width: 1355px) {
+                justify-content: center;
+              }
+            `}
+          >
             {clientInfo?.accounts?.map((account: accountInterface) => {
               return (
                 <Link key={account.id} to={"/cardInfo/" + account.id}>
