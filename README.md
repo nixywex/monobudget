@@ -2,7 +2,7 @@
 
 ## About project
 
-A training web application for accounting for expenses and income, checking the balance of cards and analyzing spending using charts based on the API of the Ukrainian bank monobank.
+A training web application for accounting for expenses and income, checking the balance of cards, and analyzing spending using charts based on the API of the Ukrainian bank monobank.
 
 ## Used technologies
 
